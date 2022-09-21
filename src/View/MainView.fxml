@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -100,13 +101,16 @@
                      </GridPane.margin>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets bottom="300.0" />
+               </VBox.margin>
             </GridPane>
          </children>
       </VBox>
-      <HBox fx:id="webView" layoutX="300.0" layoutY="50.0" prefHeight="850.0" prefWidth="1300.0">
-         <children>
-            <WebView prefHeight="200.0" prefWidth="200.0" />
-         </children>
-      </HBox>
+      <ScrollPane layoutX="300.0" layoutY="50.0" prefHeight="750.0" prefWidth="1300.0">
+         <content>
+              <WebView fx:id="webView" prefHeight="850.0" prefWidth="1300.0" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
