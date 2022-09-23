@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 
 
@@ -20,9 +21,22 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         try {
+            /*
             Parent root;
+            URL url = getClass().getClassLoader().getResource("View/MainView.fxml");
+            System.out.println(url);
+            FXMLLoader loader = new FXMLLoader(url);
+            root = loader.load();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MainView.fxml"));
+            Scene scene = new Scene(root, 1024, 768);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+             */
+            Parent root;
+            URL url = getClass().getClassLoader().getResource("View/MainView.fxml");
+            System.out.println(url);
+            FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
             Scene scene = new Scene(root, 1024, 768);
@@ -37,14 +51,10 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         SQLiteJDBC.connect();
+        StateDAO.setAllStates();
 
-        try {
-            StateDAO.setAllStates();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
 
         launch(args);
     }
