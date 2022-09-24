@@ -21,25 +21,13 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         try {
-            /*
             Parent root;
             URL url = getClass().getClassLoader().getResource("View/MainView.fxml");
             System.out.println(url);
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            Scene scene = new Scene(root, 1024, 768);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-             */
-            Parent root;
-            URL url = getClass().getClassLoader().getResource("View/MainView.fxml");
-            System.out.println(url);
-            FXMLLoader loader = new FXMLLoader(url);
-            root = loader.load();
-
-            Scene scene = new Scene(root, 1024, 768);
+            Scene scene = new Scene(root, 1024, 800);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();

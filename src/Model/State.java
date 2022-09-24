@@ -47,11 +47,6 @@ public class State {
 
     @Override
     public String toString() {
-        return "State{" +
-                "stateID=" + stateID +
-                ", stateCode='" + stateCode + '\'' +
-                ", stateName='" + stateName + '\'' +
-                ", stateArticleURL='" + stateArticleURL + '\'' +
-                '}';
+        return stateName;
     }
 }
