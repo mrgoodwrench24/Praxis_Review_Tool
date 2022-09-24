@@ -134,7 +134,7 @@ public class MainViewController implements Initializable {
             return;
         }
         else{
-            praxisNoteText.setText("Praxis Check " + checkNumber + ": " + status + " " + selectedState.getStateCode() + " " + initialsTxt.getText());
+            praxisNoteText.setText("Praxis Check " + checkNumber + ": " + status + " " + selectedState.getStateCode() + " " + initialsTxt.getText().toUpperCase());
         }
 
 
