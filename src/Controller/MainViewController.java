@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.HBox;
@@ -31,6 +28,16 @@ public class MainViewController implements Initializable {
     private String status = null;
 
     private State selectedState = null;
+
+    @FXML
+    private RadioButton clearedButton;
+
+    @FXML
+    private RadioButton notClearedButton;
+
+
+    @FXML
+    private TextField stateTxt;
 
     @FXML
     private TextField initialsTxt;
@@ -60,6 +67,9 @@ public class MainViewController implements Initializable {
     @FXML
     void onActionClear(ActionEvent event) {
         praxisNoteText.clear();
+        clearedButton.setSelected(false);
+        notClearedButton.setSelected(false);
+        stateTxt.clear();
     }
 
     @FXML
@@ -73,13 +83,11 @@ public class MainViewController implements Initializable {
     @FXML
     void onActionFirst(ActionEvent event) {
         checkNumber = 1;
-        setNote();
     }
 
     @FXML
     void onActionSecond(ActionEvent event) {
         checkNumber = 2;
-        setNote();
 
     }
 
@@ -107,14 +115,14 @@ public class MainViewController implements Initializable {
         }
         else{
             selectedState = statesComboBox.getSelectionModel().getSelectedItem();
+
         }
 
-
+        stateTxt.setText(selectedState.getStateCode());
         WebEngine e = webView.getEngine();
         e.load(selectedState.getStateArticleURL());
 
         statesComboBox.setItems(allStates);
-        setNote();
 
     }
 
@@ -130,12 +138,8 @@ public class MainViewController implements Initializable {
     }
 
     private void setNote(){
-        if(selectedState == null){
-            return;
-        }
-        else{
-            praxisNoteText.setText("Praxis Check " + checkNumber + ": " + status + " " + selectedState.getStateCode() + " " + initialsTxt.getText().toUpperCase());
-        }
+        praxisNoteText.setText("Praxis Check " + checkNumber + ": " + status + " " + stateTxt.getText() + " " + initialsTxt.getText().toUpperCase());
+
 
 
     }
@@ -149,7 +153,6 @@ public class MainViewController implements Initializable {
                 home = state;
             }
         }
-        setNote();
         WebEngine e = webView.getEngine();
         e.load(home.getStateArticleURL());
         statesComboBox.setItems(allStates);
