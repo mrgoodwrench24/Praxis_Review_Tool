@@ -24,7 +24,8 @@ public class MainViewController implements Initializable {
 
     private ObservableList<State> allStates = FXCollections.observableArrayList();
     private State home = null;
-    private int checkNumber = 1;
+
+    private State sec = null;
     private String status = null;
 
     private State selectedState = null;
@@ -50,6 +51,25 @@ public class MainViewController implements Initializable {
 
     @FXML
     private WebView webView;
+
+    @FXML
+    void onActionInitial(ActionEvent event) {
+        statesComboBox.setVisible(true);
+
+    }
+
+    @FXML
+    void onActionSecondary(ActionEvent event) {
+        statesComboBox.setVisible(false);
+        for(State state : allStates) {
+            if (state.getStateCode().equals("Sec")) {
+                sec = state;
+            }
+        }
+        WebEngine e = webView.getEngine();
+        e.load(sec.getStateArticleURL());
+
+    }
 
     @FXML
     void onActionCleared(ActionEvent event) {
@@ -80,16 +100,7 @@ public class MainViewController implements Initializable {
         clipboard.setContent(content);
     }
 
-    @FXML
-    void onActionFirst(ActionEvent event) {
-        checkNumber = 1;
-    }
 
-    @FXML
-    void onActionSecond(ActionEvent event) {
-        checkNumber = 2;
-
-    }
 
     @FXML
     void onActionHome(ActionEvent event) {
@@ -138,7 +149,7 @@ public class MainViewController implements Initializable {
     }
 
     private void setNote(){
-        praxisNoteText.setText("Praxis Check " + checkNumber + ": " + status + " " + stateTxt.getText() + " " + initialsTxt.getText().toUpperCase());
+        praxisNoteText.setText(status + " " + stateTxt.getText() + " " + initialsTxt.getText().toUpperCase());
 
 
 

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainViewController">
    <children>
       <Button layoutX="420.0" layoutY="12.0" mnemonicParsing="false" onAction="#onActionHome" text="Home" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="12.0" />
       <ComboBox fx:id="statesComboBox" editable="true" layoutX="500.0" layoutY="12.0" onAction="#onActionStates" prefWidth="300.0" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="12.0" />
@@ -25,12 +25,12 @@
             <ToggleGroup fx:id="statusGroup" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="12.0" layoutY="68.0" mnemonicParsing="false" onAction="#onActionFirst" selected="true" text="First Check" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="68.0">
+      <RadioButton layoutX="12.0" layoutY="68.0" mnemonicParsing="false" onAction="#onActionInitial" selected="true" text="Initial" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="68.0">
          <toggleGroup>
             <ToggleGroup fx:id="checkGroup" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="118.0" layoutY="68.0" mnemonicParsing="false" onAction="#onActionSecond" text="Second Check" toggleGroup="$checkGroup" AnchorPane.leftAnchor="118.0" AnchorPane.topAnchor="68.0" />
+      <RadioButton layoutX="118.0" layoutY="68.0" mnemonicParsing="false" onAction="#onActionSecondary" text="Secondary" toggleGroup="$checkGroup" AnchorPane.leftAnchor="118.0" AnchorPane.topAnchor="68.0" />
       <Label alignment="CENTER" layoutX="24.0" layoutY="99.0" text="Initials:" textAlignment="CENTER" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="99.0">
          <font>
             <Font size="18.0" />

@@ -12,10 +12,10 @@ public class SQLiteJDBC {
         try {
             // db parameters
             //Build Path
-            String url = "jdbc:sqlite:DB/praxisDB.db";
+            //String url = "jdbc:sqlite:DB/praxisDB.db";
 
             //IDE Path
-            //String url = "jdbc:sqlite:src/DAO/praxisDB.db";
+            String url = "jdbc:sqlite:src/DAO/praxisDB.db";
 
             // create a connection to the database
             conn = DriverManager.getConnection(url);
