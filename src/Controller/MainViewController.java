@@ -54,6 +54,7 @@ public class MainViewController implements Initializable {
 
     @FXML
     void onActionInitial(ActionEvent event) {
+        stateTxt.equals("");
         statesComboBox.setVisible(true);
 
     }
